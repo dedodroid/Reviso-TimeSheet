@@ -1,0 +1,67 @@
+﻿<table class="table table-adjust td-adjust-40">
+    <thead>
+        <tr class="tr-border">
+            <th>
+                First Name
+                <button ng-click="sub.sortBy('firstName')"><i class="glyphicon glyphicon-sort" title="sortBy"></i></button>
+            </th>
+            <th>
+                Last Name
+                <button ng-click="sub.sortBy('lastName')"><i class="glyphicon glyphicon-sort" title="sortBy"></i></button>
+            </th>
+            <th>
+                Address
+                <button ng-click="sub.sortBy('address')"><i class="glyphicon glyphicon-sort" title="sortBy"></i></button>
+            </th>
+            <th>
+                Email
+                <button ng-click="sub.sortBy('email')"><i class="glyphicon glyphicon-sort" title="sortBy"></i></button>
+            </th>
+            <th></th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody ng-if="!sub.editMode">
+        <tr ng-repeat="record in sub.customers | orderBy:sub.sortValue:sub.reverse">
+            <td>
+                <span data-ng-model="record.firstName" data-ng-bind="record.firstName" />
+            </td>
+            <td>
+                <span data-ng-model="record.lastName" data-ng-bind="record.lastName" />
+            </td>
+            <td>
+                <span data-ng-model="record.address" data-ng-bind="record.address" />
+            </td>
+            <td>
+                <span data-ng-model="record.email" data-ng-bind="record.email" />
+            </td>
+            <td></td>
+            <td></td>
+        </tr>
+    </tbody>
+    <tbody ng-if="sub.editMode">
+        <tr ng-repeat="record in sub.customers | orderBy:sub.sortValue:sub.reverse ">
+            <td>
+                <input type="text" data-ng-model="record.firstName" />
+            </td>
+            <td>
+                <input type="text" data-ng-model="record.lastName" />
+            </td>
+            <td>
+                <input type="text" data-ng-model="record.address" />
+            </td>
+            <td>
+                <input type="text" data-ng-model="record.email" />
+            </td>
+            <td>
+                <button style="display:inline" class="btn btn-info" ng-click="sub.updateRecord(record);">Save</button>
+            </td>
+            <td>
+                <button style="display:inline" class="btn btn-danger" ng-click="sub.deleteRecord(record);">Delete</button>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+<h3 ng-bind-html="sub.crudMessage"></h3>
+<div class="modal-dialog" ng-class="sub.modal.size ? 'modal-' + sub.modal.size : ''"></div>

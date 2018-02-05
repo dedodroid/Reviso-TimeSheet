@@ -1,0 +1,47 @@
+﻿<table class="table table-adjust td-adjust-40">
+    <thead>
+        <tr class="tr-border">
+            <th>
+                Name
+                <button ng-click="sub.sortBy('name')"><i class="glyphicon glyphicon-sort" title="sortBy"></i></button>
+            </th>
+            <th>
+                Description
+                <button ng-click="sub.sortBy('description')"><i class="glyphicon glyphicon-sort" title="sortBy"></i></button>
+            </th>
+            <th></th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody ng-if="!sub.editMode">
+        <tr ng-repeat="record in sub.projects | orderBy:sub.sortValue:sub.reverse">
+            <td>
+                <span data-ng-model="record.name" data-ng-bind="record.name" />
+            </td>
+            <td>
+                <span data-ng-model="record.description" data-ng-bind="record.description" />
+            </td>
+            <td></td>
+            <td></td>
+        </tr>
+    </tbody>
+    <tbody ng-if="sub.editMode">
+        <tr ng-repeat="record in sub.projects | orderBy:sub.sortValue:sub.reverse ">
+            <td>
+                <input type="text" data-ng-model="record.name" />
+            </td>
+            <td>
+                <input type="text" data-ng-model="record.description" />
+            </td>
+            <td>
+                <button style="display:inline" class="btn btn-info" ng-click="sub.updateRecord(record);">Save</button>
+            </td>
+            <td>
+                <button style="display:inline" class="btn btn-danger" ng-click="sub.deleteRecord(record);">Delete</button>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+<h3 ng-bind-html="sub.crudMessage"></h3>
+<div class="modal-dialog" ng-class="sub.modal.size ? 'modal-' + sub.modal.size : ''"></div>

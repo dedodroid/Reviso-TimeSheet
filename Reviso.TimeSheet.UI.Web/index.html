@@ -1,0 +1,46 @@
+﻿<!DOCTYPE html>
+<html ng-app="app">
+<head>
+    <title></title>
+	<meta charset="utf-8" />
+    <base href="/home"/>
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="content/site.css" />
+
+    <style>
+        .navbar {
+            border-radius: 0;
+        }
+    </style>
+
+    <script src="scripts/angular.min.js"></script>
+    <script src="//unpkg.com/@uirouter/angularjs/release/angular-ui-router.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/angular-local-storage/0.7.1/angular-local-storage.min.js"></script>
+    <script src="//unpkg.com/angular-datetime-input"></script>
+    <script src="scripts/ui-bootstrap-tpls-2.5.0.min.js"></script>
+    <script src="app/app.module.js"></script>
+    <script src="app/main.controller.js"></script>
+    <script src="app/timesheet/timesheet.controller.js"></script>
+    <script src="app/project/project.controller.js"></script>
+    <script src="app/customer/customer.controller.js"></script>
+    <script src="app/common/shared.service.js"></script>
+    <script src="app/timesheet/timesheet.service.js"></script>
+    <script src="app/project/project.service.js"></script>
+    <script src="app/customer/customer.service.js"></script>
+    <script src="app/main.service.js"></script>
+    <script src="app/timesheet/modals/filter.modal.js"></script>
+</head>
+<body ng-controller="mainController as main">
+
+    <!-- Navigation -->
+    <div ng-include="'app/navigation/navigation.html'"></div>
+
+    <!-- Main content -->
+    <div class="container">
+        <ui-view></ui-view>
+    </div>
+
+    <div ng-show="main.getToggleSpinner()" ng-include="'app/common/layout/spinner.html'"></div>
+
+</body>
+</html>

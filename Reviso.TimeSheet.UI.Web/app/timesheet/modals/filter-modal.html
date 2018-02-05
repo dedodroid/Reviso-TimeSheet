@@ -1,0 +1,21 @@
+﻿<div class="modal-header">
+    <h3 class="modal-title" id="modal-title">FilterBy {{modal.fieldName}}</h3>
+</div>
+<div class="modal-body" id="modal-body">
+    <select ng-show="modal.showSelect()" name="filterSelect" data-ng-model="modal.selectedItem">ò
+        <option value="">------Reset------</option>
+        <option data-ng-if="modal.fieldName == 'customer'" ng-repeat="customer in modal.customerList" value="{{customer.lastName}}">{{customer.lastName}}</option>
+        <option data-ng-if="modal.fieldName == 'project'" ng-repeat="project in modal.projectList" value="{{project.name}}">{{project.name}}</option>
+    </select>
+    <div ng-show="!modal.showSelect()">
+        <div class="btn-group">
+            <label class="btn btn-success btn-sm" ng-model="modal.selectedItem" uib-btn-radio="'reset'">---RESET---</label>
+            <label class="btn btn-success btn-sm" ng-model="modal.selectedItem" uib-btn-radio="'currentMonth'">Current Month</label>
+            <label class="btn btn-success btn-sm" ng-model="modal.selectedItem" uib-btn-radio="'currentYear'">Current Year</label>
+        </div>
+    </div>
+</div>
+<div class="modal-footer">
+    <button class="btn btn-primary" type="button" data-ng-click="modal.ok()">OK</button>
+    <button class="btn btn-warning" type="button" data-ng-click="modal.cancel()">Cancel</button>
+</div>

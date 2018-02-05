@@ -1,0 +1,102 @@
+﻿<table class="table table-adjust td-adjust-40">
+    <thead>
+        <tr class="tr-border">
+            <th>
+                Customer
+                <button ng-click="sub.sortBy('customer.lastName')"  title="sort by customer"><i class="glyphicon glyphicon-sort"></i></button>
+                <button ng-class="sub.filtersSelected.customer ? 'item-selected' : ''" ng-click="sub.openModal('lm', 'customer')" title="filter by customer"><i class="glyphicon glyphicon-filter"></i></button>
+            </th>
+            <th>
+                Project
+                <button ng-click="sub.sortBy('project.name')" title="sort by project"><i class="glyphicon glyphicon-sort"></i></button>
+                <button ng-class="sub.filtersSelected.project ? 'item-selected' : ''" ng-click="sub.openModal('lm', 'project')" title="filter by project"><i class="glyphicon glyphicon-filter"></i></button>
+            </th>
+            <th>
+                Task Description
+                <button ng-click="sub.sortBy('taskDescription')" title="sort by task"><i class="glyphicon glyphicon-sort"></i></button>
+            </th>
+            <th>
+                Date
+                <button ng-click="sub.sortBy('date')" title="sort by date"><i class="glyphicon glyphicon-sort"></i></button>
+                <button ng-class="sub.filtersSelected.date ? 'item-selected' : ''" ng-click="sub.openModal('lm', 'date')" title="filter by date"><i class="glyphicon glyphicon-filter"></i></button>
+            </th>
+            <th>
+                Regular Hours
+                <button ng-click="sub.sortBy('regularHours')" title="sort by regular hours"><i class="glyphicon glyphicon-sort"></i></button>
+            </th>
+            <th>
+                Over Time Hours
+                <button ng-click="sub.sortBy('overTimeHours')" title="sort by over time hours"><i class="glyphicon glyphicon-sort"></i></button>
+            </th>
+            <th></th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody ng-if="!sub.editMode">
+        <tr ng-repeat="record in sub.timeSheet | orderBy:sub.sortValue:sub.reverse | filter: sub.filterValue">
+            <td>
+                <span data-ng-model="record.customer.lastName" data-ng-bind="record.customer.lastName" />
+            </td>
+            <td>
+                <span data-ng-model="record.project.name" data-ng-bind="record.project.name" />
+            </td>
+            <td>
+                <span data-ng-model="record.taskDescription" data-ng-bind="record.taskDescription" />
+            </td>
+            <td>
+                <span data-ng-model="record.date" data-ng-bind="record.date" datetime="yyyy-MM-dd" />
+            </td>
+            <td>
+                <span data-ng-model="record.regularHours" data-ng-bind="record.regularHours" />
+            </td>
+            <td>
+                <span data-ng-model="record.overTimeHours" data-ng-bind="record.overTimeHours" />
+            </td>
+            <td></td>
+            <td></td>
+        </tr>
+    </tbody>
+    <tbody ng-if="sub.editMode">
+        <tr ng-repeat="record in sub.timeSheet | orderBy:sub.sortValue:sub.reverse | filter : sub.filterValue">
+            <td>
+                <input type="text" data-ng-model="record.customer.lastName" ng-readonly="record.customer.lastName" />
+            </td>
+            <td>
+                <input type="text" data-ng-model="record.project.name" ng-readonly="record.project.name" />
+            </td>
+            <td>
+                <input type="text" data-ng-model="record.taskDescription" />
+            </td>
+            <td>
+                <input type="text" data-ng-model="record.date" datetime="yyyy-MM-dd" />
+            </td>
+            <td>
+                <input type="number" data-ng-model="record.regularHours" />
+            </td>
+            <td>
+                <input type="number" data-ng-model="record.overTimeHours" />
+            </td>
+            <td>
+                <button style="display:inline" class="btn btn-info" ng-click="sub.updateRecord(record);">Save</button>
+            </td>
+            <td>
+                <button style="display:inline" class="btn btn-danger" ng-click="sub.deleteRecord(record);">Delete</button>
+            </td>
+        </tr>
+    </tbody>
+    <tbody ng-if="!sub.editMode">
+        <tr class="tr-border">
+            <th>Totals Hours</th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th ng-bind="sub.getTotalRegularHours()"></th>
+            <th ng-bind="sub.getTotalOverTimeHours()"></th>
+            <th></th>
+            <th><button ng-click="sub.exportRecords()" title="create invoice"><i class="glyphicon glyphicon-floppy-save"></i></button></th>
+        </tr>
+    </tbody>
+</table>
+
+<h3 ng-bind-html="sub.crudMessage"></h3>
+<div class="modal-dialog" ng-class="sub.modal.size ? 'modal-' + sub.modal.size : ''"></div>

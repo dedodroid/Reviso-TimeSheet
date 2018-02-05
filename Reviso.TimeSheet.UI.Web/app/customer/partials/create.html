@@ -1,0 +1,20 @@
+﻿<table class="table table-adjust td-adjust-40">
+    <thead>
+        <tr class="tr-border">
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Address</th>
+            <th>Email</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr class="tr-border">
+            <td><input type="text" data-ng-model="sub.newRecord.firstName" id="new-first-name" /></td>
+            <td><input type="text" data-ng-model="sub.newRecord.lastName" id="new-last-name" /></td>
+            <td><input type="text" data-ng-model="sub.newRecord.address" id="new-address" /></td>
+            <td><input type="text" data-ng-model="sub.newRecord.email" id="new-email" /></td>
+            <td><button class="btn btn-success" ng-click="sub.addNewRecord(sub.newRecord);">Add</button></td>
+        </tr>
+    </tbody>
+</table>

@@ -1,0 +1,27 @@
+﻿<div class="page-header text-center">
+    <h1>Customers</h1>
+</div>
+
+<div class="row">
+
+    <uib-tabset active="active">
+        <uib-tab index="0" heading="Create Records">
+            <div class="col-sm-12">
+                <ng-include src="'/app/customer/partials/create.html'"></ng-include>
+            </div>
+        </uib-tab>
+        <uib-tab index="1">
+            <uib-tab-heading>
+                <span>View/Edit Records</span>
+                <button ng-click="sub.changeMode()">
+                    <i data-ng-show="!sub.editMode" class="glyphicon glyphicon-pencil" title="edit records"></i>
+                    <i data-ng-show="sub.editMode" class="glyphicon glyphicon-ok" title="ok"></i>
+                </button>
+            </uib-tab-heading>
+            <div class="col-sm-12">
+                <ng-include src="'/app/customer/partials/view.html'"></ng-include>
+            </div>
+        </uib-tab>
+    </uib-tabset>
+
+</div>      

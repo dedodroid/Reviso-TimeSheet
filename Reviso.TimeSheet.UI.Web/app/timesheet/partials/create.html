@@ -1,0 +1,34 @@
+﻿<table class="table table-adjust td-adjust-40">
+    <thead>
+        <tr class="tr-border">
+            <th>Customer</th>
+            <th>Project</th>
+            <th>Date</th>
+            <th>Task Description</th>
+            <th>Regular Hours</th>
+            <th>Over Time Hours</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr class="tr-border">
+            <td>
+                <select name="customerSelect" data-ng-model="sub.newRecord.customerId">
+                    <option ng-repeat="customer in sub.customerList" value="{{customer.customerId}}">{{customer.lastName}}</option>
+                </select>
+            </td>
+            <td>
+                <select name="projectSelect" data-ng-model="sub.newRecord.projectId">
+                    <option ng-repeat="project in sub.projectList" value="{{project.projectId}}">{{project.name}}</option>
+                </select>
+            </td>
+            <td><input type="text" data-ng-model="sub.newRecord.date" datetime="yyyy-MM-dd" /></td>
+            <td><input type="text" data-ng-model="sub.newRecord.taskDescription" /></td>
+            <td><input type="number" data-ng-model="sub.newRecord.regularHours" /></td>
+            <td><input type="number" data-ng-model="sub.newRecord.overTimeHours" /></td>
+            <td>
+                <button class="btn btn-success" ng-click="sub.addNewRecord(sub.newRecord);">Add</button>
+            </td>
+        </tr>
+    </tbody>
+</table>
