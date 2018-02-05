@@ -116,6 +116,10 @@
       <Project>{8d6dd8b9-864d-450e-a0ac-99d1dd0ded1d}</Project>
       <Name>Reviso.TimeSheet.Entities</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Reviso.TimeSheet.Repositories\Reviso.TimeSheet.Repositories.csproj">
+      <Project>{4e74f289-93b9-4c3e-87a2-b76130a2a7ca}</Project>
+      <Name>Reviso.TimeSheet.Repositories</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Reviso.TimeSheet.ViewModels\Reviso.TimeSheet.ViewModels.csproj">
       <Project>{5b761002-f1e3-4687-afd9-e16ffd981fb2}</Project>
       <Name>Reviso.TimeSheet.ViewModels</Name>

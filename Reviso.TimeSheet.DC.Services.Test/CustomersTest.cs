@@ -2,6 +2,8 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Reviso.TimeSheet.DC.Services.Interfaces;
 using System.Linq;
+using Reviso.TimeSheet.Repositories.Repository.Interfaces;
+using Reviso.TimeSheet.Repositories.Repository;
 
 namespace Reviso.TimeSheet.DC.Services.Test
 {
@@ -11,7 +13,8 @@ namespace Reviso.TimeSheet.DC.Services.Test
         [TestMethod]
         public void GetAllCustomers()
         {
-            ICustomerService customerService = new CustomerService();
+            ICustomerService customerService = new CustomerService(new CustomerRepository());
+
             var customers = customerService.GetAll();
 
             Assert.IsNotNull(customers);
