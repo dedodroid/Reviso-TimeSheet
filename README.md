@@ -28,7 +28,6 @@
   - Validations of input fields
   - Confirmation messages, for instance when delete records
   - Move Entity Framework code to an own project (now it is in Repository project)
-  - Use Abp into Test project
 
 # How to use:
 
