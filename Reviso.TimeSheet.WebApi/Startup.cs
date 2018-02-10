@@ -1,11 +1,11 @@
 ﻿using Abp;
 using Abp.Owin;
 using Castle.Windsor;
-using Giuffre.Teseo.Api.Suggest;
 using Microsoft.Owin;
 using Newtonsoft.Json.Serialization;
 using Owin;
 using Reviso.TimeSheet.Repositories;
+using Reviso.TimeSheet.WebApi.Controllers.AbpModule;
 using Reviso.TimeSheet.WebApi.WindsorAdapters;
 using System.Data.Entity;
 using System.Linq;

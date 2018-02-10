@@ -1,7 +1,6 @@
-﻿namespace Giuffre.Teseo.Api.Suggest
+﻿namespace Reviso.TimeSheet.WebApi.Controllers.AbpModule
 {
     using Abp.Modules;
-    using System;
 
     public class TimeSheetApiModule : AbpModule
     {
@@ -12,6 +11,7 @@
 
         public override void Initialize()
         {
+
         }
     }
 }

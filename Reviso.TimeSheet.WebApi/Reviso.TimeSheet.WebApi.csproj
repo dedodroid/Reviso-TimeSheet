@@ -225,7 +225,7 @@
     <Compile Include="Identity\CustomOAuthProvider.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
-    <Compile Include="TimeSheetApiModule.cs" />
+    <Compile Include="AbpModule\TimeSheetApiModule.cs" />
     <Compile Include="WindsorAdapters\WebWindsorInstaller.cs" />
     <Compile Include="WindsorAdapters\WindsorCompositionRoot.cs" />
   </ItemGroup>
