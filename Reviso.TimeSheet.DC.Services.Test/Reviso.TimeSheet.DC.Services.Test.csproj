@@ -104,6 +104,9 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
+    <Compile Include="BaseClasses\BaseBootstrapperUnitTest.cs" />
+    <Compile Include="BaseClasses\BaseUnitTest.cs" />
+    <Compile Include="AbpModule\DCServicesTestModule.cs" />
     <Compile Include="CustomersTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

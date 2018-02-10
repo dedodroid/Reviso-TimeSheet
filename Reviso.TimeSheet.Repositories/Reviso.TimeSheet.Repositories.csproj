@@ -106,6 +106,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AbpModule\RepositoriesModule.cs" />
     <Compile Include="EFCore\Configuration.cs" />
     <Compile Include="EFCore\TimeSheetContext.cs" />
     <Compile Include="EFCore\TimeSheetUserManager.cs" />

@@ -4,16 +4,30 @@ using Reviso.TimeSheet.DC.Services.Interfaces;
 using System.Linq;
 using Reviso.TimeSheet.Repositories.Repository.Interfaces;
 using Reviso.TimeSheet.Repositories.Repository;
+using Abp.Dependency;
 
 namespace Reviso.TimeSheet.DC.Services.Test
 {
     [TestClass]
-    public class CustomersTest
+    public class CustomersTest : BaseBootstrapperUnitTest
     {
+
+        [TestInitialize]
+        public void Initialize()
+        {
+            base.Configure();
+        }
+
+        [TestCleanup]
+        public void Shutdown()
+        {
+            base.CleanUp();
+        }
+
         [TestMethod]
         public void GetAllCustomers()
         {
-            ICustomerService customerService = new CustomerService(new CustomerRepository());
+            ICustomerService customerService = GetBootstrapper().IocManager.Resolve<ICustomerService>();
 
             var customers = customerService.GetAll();
 
