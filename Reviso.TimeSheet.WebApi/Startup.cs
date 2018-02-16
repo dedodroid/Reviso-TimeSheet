@@ -24,7 +24,7 @@ namespace Reviso.TimeSheet.WebApi
         {
             HttpConfiguration httpConfig = new HttpConfiguration();
 
-            httpConfig.EnableCors();
+            //httpConfig.EnableCors();
 
             AbpBootstrapper bootstrapper = ConfigureCoreServices(app, httpConfig);
 
